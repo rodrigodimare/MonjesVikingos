@@ -3,7 +3,7 @@ package implementacion_state;
 public class Calmado extends Estado{
 
     @Override
-    public Estado recibirDanio() {
+    public Estado recibirDanio(int danio) {
         return new Normal();
     }
 
@@ -12,8 +12,5 @@ public class Calmado extends Estado{
         return new Calmado();
     }
 
-    @Override
-    public void hacerDanio() {
-        super.hacerDanio();
-    }
+
 }

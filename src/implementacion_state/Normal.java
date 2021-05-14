@@ -4,9 +4,13 @@ import javax.swing.plaf.synth.SynthSpinnerUI;
 
 public class Normal extends Estado{
 
+    private int danioRecibido;
+
     @Override
-    public Estado recibirDanio() {
-        return new Colerico();
+    public Estado recibirDanio(int danio) {
+        Estado colerico = new Colerico();
+        colerico.setDanioRecibido(danio);
+        return colerico;
     }
 
     @Override
@@ -15,7 +19,17 @@ public class Normal extends Estado{
     }
 
     @Override
-    public void hacerDanio() {
-        System.out.println("Daño efectuado al enemigo: 10");
+    public int hacerDanio(int danio) {
+        return danio;
     }
+
+    @Override
+    public int getDanioRecibido() {
+        return danioRecibido;
+    }
+
+    public void setDanioRecibido(int danioRecibido) {
+        this.danioRecibido = danioRecibido;
+    }
+
 }

@@ -2,9 +2,14 @@ package implementacion_state;
 
 public class Colerico extends Estado {
 
+    private int danioRecibido;
+    private int danioEfectuado;
+
     @Override
-    public Estado recibirDanio() {
-        return new Berserker();
+    public Estado recibirDanio(int danio) {
+        Estado berserker = new Berserker();
+        berserker.setDanioRecibido(danio*2);
+        return berserker;
     }
 
     @Override
@@ -13,7 +18,18 @@ public class Colerico extends Estado {
     }
 
     @Override
-    public void hacerDanio() {
-        System.out.println("Daño efectuado al enemigo: 20");
+    public int hacerDanio(int danio) {
+        return danio*2;
     }
+
+    @Override
+    public int getDanioRecibido() {
+        return danioRecibido;
+    }
+
+
+    public void setDanioRecibido(int danioRecibido) {
+        this.danioRecibido = danioRecibido;
+    }
+
 }

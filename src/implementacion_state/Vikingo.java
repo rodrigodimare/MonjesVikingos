@@ -9,16 +9,17 @@ public class Vikingo {
         return estado;
     }
 
-    public void recibirDanio() {
-        estado = estado.recibirDanio();
+    public void recibirDanio(int danio) {
+        estado = estado.recibirDanio(danio);
+        this.vida -= estado.getDanioRecibido();
     }
 
-    public int mostrarVida(){
+    public int getVida(){
         return this.vida;
     }
 
-    public void hacerDanio(){
-        estado.hacerDanio();
+    public void hacerDanio(int danio){
+        System.out.println("El daño del vikingo es de: " + estado.hacerDanio(danio));
     }
 
     public void meditar() {

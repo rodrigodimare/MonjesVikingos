@@ -2,34 +2,20 @@ package implementacion_state;
 
 public class Colerico extends Estado {
 
-    private int danioRecibido;
-    private int danioEfectuado;
-
     @Override
     public Estado recibirDanio(int danio) {
         Estado berserker = new Berserker();
-        berserker.setDanioRecibido(danio*2);
+        berserker.setDanioRecibido(danio * 2);
         return berserker;
     }
 
     @Override
     public Estado meditar() {
-        return new Calmado();
+        return new Normal();
     }
 
-    @Override
-    public int hacerDanio(int danio) {
-        return danio*2;
-    }
-
-    @Override
-    public int getDanioRecibido() {
-        return danioRecibido;
-    }
-
-
-    public void setDanioRecibido(int danioRecibido) {
-        this.danioRecibido = danioRecibido;
+    public int getDanioEfectuado() {
+        return danioEfectuado * 2;
     }
 
 }

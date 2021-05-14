@@ -2,27 +2,40 @@ package implementacion_state;
 
 public abstract class Estado {
 
-    private int danioRecibido;
+    protected int danioRecibido;
+    protected int danioEfectuado;
 
-    public Estado recibirDanio(int danio){
-        return this.recibirDanio(danio);
+    public Estado() {
+        this.danioEfectuado = 10;
     }
 
-    public Estado meditar(){
-        return this.meditar();
+    public Estado recibirDanio(int danio) {
+        return this;
     }
 
-    public int hacerDanio(int danio){
-        return this.hacerDanio(danio);
+    public Estado meditar() {
+        return this;
+    }
+
+    public Estado hacerDanio() {
+        return this;
     }
 
     public int getDanioRecibido() {
         return danioRecibido;
     }
 
+    public int getDanioEfectuado() {
+        return danioEfectuado;
+    }
 
     public void setDanioRecibido(int danioRecibido) {
         this.danioRecibido = danioRecibido;
     }
 
+    @Override
+    public String toString() {
+        return "Estado del Vikingo: " + this.getClass().getSimpleName();
+    }
+    
 }

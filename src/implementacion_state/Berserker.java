@@ -2,33 +2,20 @@ package implementacion_state;
 
 public class Berserker extends Estado {
 
-    private int danioRecibido;
-    private int danioEfectuado;
-
     @Override
     public Estado recibirDanio(int danio) {
-        Estado berserker = new Berserker();
-        berserker.setDanioRecibido(danio/2);
-        return berserker;
+        danioRecibido = danio / 2;
+        return this;
     }
 
     @Override
     public Estado meditar() {
-        return new Calmado();
+        return new Normal();
     }
 
     @Override
-    public int hacerDanio(int danio) {
-        return danio*3;
-    }
-
-    @Override
-    public int getDanioRecibido() {
-        return danioRecibido;
-    }
-
-    public void setDanioRecibido(int danioRecibido) {
-        this.danioRecibido = danioRecibido;
+    public int getDanioEfectuado() {
+        return danioEfectuado * 3;
     }
 
 }

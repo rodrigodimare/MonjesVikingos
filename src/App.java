@@ -1,9 +1,10 @@
-package implementacion_state;
+import implementacion_class.VikingoDos;
 
 public class App {
     public static void main(String[] args) {
 
-        Vikingo vikingo = new Vikingo();
+//        Vikingo vikingo = new Vikingo();
+        VikingoDos vikingo = new VikingoDos();
         System.out.println(vikingo.getEstado());
         //estado normal - danioEfectuado 10 - danioRecibido 10
         vikingo.hacerDanio();

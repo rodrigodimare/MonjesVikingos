@@ -44,7 +44,7 @@ public class VikingoC extends Vikingo {
         return danio;
     }
 
-    public boolean recibirDanio(int danio) {
+    private boolean recibirDanio(int danio) {
         switch (estado) {
             case NORMAL:
                 this.estado = COLERICO;
@@ -95,7 +95,7 @@ public class VikingoC extends Vikingo {
     public String getEstado() {
         return "Estado de " + this.nombre + ": " + estado;
     }
-    
+
     enum EstadoVikingo {
         NORMAL, COLERICO, BERSERKER, CALMADO, MUERTO
     }

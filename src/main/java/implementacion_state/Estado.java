@@ -32,10 +32,5 @@ public abstract class Estado {
     public void setDanioRecibido(int danioRecibido) {
         this.danioRecibido = danioRecibido;
     }
-
-    @Override
-    public String toString() {
-        return this.getClass().getSimpleName();
-    }
-
+    
 }

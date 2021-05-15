@@ -9,11 +9,11 @@ public class VikingoS extends Vikingo {
         this.estado = new Normal();
     }
 
-    public String getEstado() {
-        return "Estado de " + this.nombre + ": " + this.estado;
+    public Estado getEstado() {
+        return this.estado;
     }
 
-    public boolean recibirDanio(int danio) {
+    private boolean recibirDanio(int danio) {
         if (this.estado instanceof Muerto) {
             return false;
         }

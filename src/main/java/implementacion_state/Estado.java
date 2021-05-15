@@ -35,7 +35,7 @@ public abstract class Estado {
 
     @Override
     public String toString() {
-        return "Estado del Vikingo: " + this.getClass().getSimpleName();
+        return this.getClass().getSimpleName();
     }
-    
+
 }

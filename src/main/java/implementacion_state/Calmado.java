@@ -6,5 +6,5 @@ public class Calmado extends Estado {
     public Estado hacerDanio() {
         return new Normal();
     }
-    
+
 }

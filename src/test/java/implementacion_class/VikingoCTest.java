@@ -1,21 +1,24 @@
-package implementacion_state;
+package implementacion_class;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import static implementacion_class.VikingoC.EstadoVikingo.BERSERKER;
+import static implementacion_class.VikingoC.EstadoVikingo.CALMADO;
+import static implementacion_class.VikingoC.EstadoVikingo.COLERICO;
+import static implementacion_class.VikingoC.EstadoVikingo.MUERTO;
+import static implementacion_class.VikingoC.EstadoVikingo.NORMAL;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-public class VikingoSTest {
-
-    VikingoS vikingo1;
-    VikingoS vikingo2;
+public class VikingoCTest {
+    VikingoC vikingo1;
+    VikingoC vikingo2;
 
     @Before
     public void crearVikingos() {
         // Arrange
-        vikingo1 = new VikingoS("Ragnar");
-        vikingo2 = new VikingoS("Rollo");
+        vikingo1 = new VikingoC("Ragnar");
+        vikingo2 = new VikingoC("Rollo");
     }
 
     @Test
@@ -25,7 +28,7 @@ public class VikingoSTest {
 
         // Assert
         assertEquals(vikingo2.getVida(), 90);
-        assertTrue(vikingo2.getEstado() instanceof Colerico);
+        assertEquals(vikingo2.getEstado(), COLERICO);
     }
 
     @Test
@@ -36,7 +39,7 @@ public class VikingoSTest {
 
         // Assert
         assertEquals(vikingo2.getVida(), 70);
-        assertTrue(vikingo2.getEstado() instanceof Berserker);
+        assertEquals(vikingo2.getEstado(), BERSERKER);
     }
 
     @Test
@@ -48,7 +51,7 @@ public class VikingoSTest {
 
         // Assert
         assertEquals(vikingo2.getVida(), 65);
-        assertTrue(vikingo2.getEstado() instanceof Berserker);
+        assertEquals(vikingo2.getEstado(), BERSERKER);
     }
 
     @Test
@@ -62,7 +65,7 @@ public class VikingoSTest {
 
         // Assert
         assertEquals(vikingo2.getVida(), 0);
-        assertTrue(vikingo2.getEstado() instanceof Muerto);
+        assertEquals(vikingo2.getEstado(), MUERTO);
     }
 
     @Test
@@ -72,7 +75,7 @@ public class VikingoSTest {
         vikingo1.hacerDanio(vikingo2);
 
         // Assert
-        assertTrue(vikingo2.getEstado() instanceof Calmado);
+        assertEquals(vikingo2.getEstado(), CALMADO);
         assertEquals(vikingo2.getVida(), 100);
     }
 
@@ -83,7 +86,7 @@ public class VikingoSTest {
         vikingo2.meditar();
 
         // Assert
-        assertTrue(vikingo2.getEstado() instanceof Normal);
+        assertEquals(vikingo2.getEstado(), NORMAL);
         assertEquals(vikingo2.getVida(), 90);
     }
 
@@ -95,7 +98,7 @@ public class VikingoSTest {
         vikingo2.meditar();
 
         // Assert
-        assertTrue(vikingo2.getEstado() instanceof Normal);
+        assertEquals(vikingo2.getEstado(), NORMAL);
         assertEquals(vikingo2.getVida(), 70);
     }
 
@@ -106,7 +109,7 @@ public class VikingoSTest {
         vikingo1.meditar();
 
         // Assert
-        assertTrue(vikingo1.getEstado() instanceof Calmado);
+        assertEquals(vikingo1.getEstado(), CALMADO);
     }
 
     @Test
@@ -116,7 +119,7 @@ public class VikingoSTest {
         vikingo1.hacerDanio(vikingo2);
 
         // Assert
-        assertTrue(vikingo1.getEstado() instanceof Normal);
+        assertEquals(vikingo1.getEstado(), NORMAL);
         assertEquals(vikingo2.getVida(), 90);
     }
 
@@ -126,7 +129,7 @@ public class VikingoSTest {
         vikingo1.hacerDanio(vikingo2);
 
         // Assert
-        assertTrue(vikingo1.getEstado() instanceof Normal);
+        assertEquals(vikingo1.getEstado(), NORMAL);
         assertEquals(vikingo2.getVida(), 90);
     }
 
@@ -137,8 +140,8 @@ public class VikingoSTest {
         vikingo1.hacerDanio(vikingo2);
 
         // Assert
-        assertTrue(vikingo1.getEstado() instanceof Colerico);
-        assertTrue(vikingo2.getEstado() instanceof Colerico);
+        assertEquals(vikingo1.getEstado(), COLERICO);
+        assertEquals(vikingo2.getEstado(), COLERICO);
         assertEquals(vikingo1.getVida(), 90);
         assertEquals(vikingo2.getVida(), 80);
     }
@@ -151,8 +154,8 @@ public class VikingoSTest {
         vikingo1.hacerDanio(vikingo2);
 
         // Assert
-        assertTrue(vikingo1.getEstado() instanceof Berserker);
-        assertTrue(vikingo2.getEstado() instanceof Colerico);
+        assertEquals(vikingo1.getEstado(), BERSERKER);
+        assertEquals(vikingo2.getEstado(), COLERICO);
         assertEquals(vikingo1.getVida(), 70);
         assertEquals(vikingo2.getVida(), 70);
     }

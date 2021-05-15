@@ -92,8 +92,8 @@ public class VikingoC extends Vikingo {
         System.out.println(this.nombre + " meditando...");
     }
 
-    public String getEstado() {
-        return "Estado de " + this.nombre + ": " + estado;
+    public EstadoVikingo getEstado() {
+        return this.estado;
     }
 
     enum EstadoVikingo {
